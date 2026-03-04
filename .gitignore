@@ -1,0 +1,28 @@
+# Binaries
+ennyn
+ennyn-*
+*.exe
+*.test
+*.out
+
+# Go build cache
+/vendor/
+
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment
+.env
+.env.*
+
+# OS
+Thumbs.db
+
+# Test artifacts
+coverage.out
+coverage.html
