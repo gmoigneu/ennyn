@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Ennyn ("Doors" in Sindarin) is an open-source development proxy that runs locally on a developer's machine. It manages hostname resolution, TLS certificates, and request routing for applications composed of multiple services running on different ports. Target platforms: macOS and Windows (WSL).
+Ennyn ("Doors" in Sindarin) is an open-source development proxy that runs locally on a developer's machine. It manages hostname resolution, TLS certificates, and request routing for applications composed of multiple services running on different ports. Target platforms: macOS and Linux (for WSL on Windows).
 
 ## Language & Build
 
@@ -15,7 +15,11 @@ Ennyn ("Doors" in Sindarin) is an open-source development proxy that runs locall
 - **Test single:** `go test ./path/to/package -run TestName`
 - **Lint:** `golangci-lint run` (install via https://golangci-lint.run)
 - **Vet:** `go vet ./...`
-- **Cross-compile:** `GOOS=darwin GOARCH=arm64 go build -o ennyn-darwin-arm64` / `GOOS=linux GOARCH=amd64 go build -o ennyn-linux-amd64`
+- **Cross-compile:**
+  - `GOOS=darwin GOARCH=arm64 go build -o ennyn-darwin-arm64`
+  - `GOOS=darwin GOARCH=amd64 go build -o ennyn-darwin-amd64`
+  - `GOOS=linux GOARCH=arm64 go build -o ennyn-linux-arm64`
+  - `GOOS=linux GOARCH=amd64 go build -o ennyn-linux-amd64`
 
 ## Architecture
 

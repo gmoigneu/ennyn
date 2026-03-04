@@ -24,13 +24,12 @@ jobs:
         include:
           - goos: linux
             goarch: amd64
-            suffix: ""
+          - goos: linux
+            goarch: arm64
+          - goos: darwin
+            goarch: amd64
           - goos: darwin
             goarch: arm64
-            suffix: ""
-          - goos: windows
-            goarch: amd64
-            suffix: ".exe"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
@@ -40,8 +39,8 @@ jobs:
         env:
           GOOS: ${{ matrix.goos }}
           GOARCH: ${{ matrix.goarch }}
-        run: go build -o ennyn-${{ matrix.goos }}-${{ matrix.goarch }}${{ matrix.suffix }} .
+        run: go build -o ennyn-${{ matrix.goos }}-${{ matrix.goarch }} .
       - uses: actions/upload-artifact@v4
         with:
           name: ennyn-${{ matrix.goos }}-${{ matrix.goarch }}
-          path: ennyn-${{ matrix.goos }}-${{ matrix.goarch }}${{ matrix.suffix }}
+          path: ennyn-${{ matrix.goos }}-${{ matrix.goarch }}
